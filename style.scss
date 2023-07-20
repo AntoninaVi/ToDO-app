@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FAFAFA;
+}
+.container{
+    max-width: 1440px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.todo-app{
+    max-width: 540px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: grab;
+    &:active{
+        cursor: grabbing;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+

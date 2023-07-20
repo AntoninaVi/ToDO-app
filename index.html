@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="todo-app">
+        <h1>TODO</h1>
+        <div class="theme-switch">
+            <label for="dark-theme"><img src="img/moon.svg" alt=""></label>
+            <input type="checkbox" id="dark-theme">
+        </div>
+        <input type="text" id="taskInput" placeholder="Create a new todo…">
+        <ul id="taskList"></ul>
+        <div class="filters">
+            <button id="all">All</button>
+            <button id="active">Active</button>
+            <button id="completed">Completed</button>
+            <button id="clearCompleted">Clear Completed</button>
+        </div>
+    </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
