@@ -14,24 +14,40 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="todo-app">
-            <h1>TODO</h1>
-            <div class="theme-switch">
-                <label for="theme-swicher"><img src="img/moon.svg" alt=""></label>
-                <input class="theme-swicher" type="checkbox" id="theme-swicher">
+    <div class="wrapper">
+        <div class="container">
+
+            <header class="header">
+                <h1 class="header__title">TODO</h1>
+                <div class="header__theme-switch">
+                    <label for="theme-swicher"><img src="img/moon.svg" alt=""></label>
+                    <input class="theme-swicher" type="checkbox" id="theme-swicher">
+                </div>
+            </header>
+
+            <main class="main">
+                <div class="todo-app">
+                    <div class="todo-app__task-creation">
+                        <input class="todo-app__task-creation-input" type="text" id="taskInput"
+                            placeholder="Create a new todo…">
+                    </div>
+                    <ul class="todo-app__task-list" id="taskList">
+                    </ul>
+                    <div class="todo-app__filters">
+                        <div class="todo-app__counting"><span id="remainingCount">0</span> items left</div>
+                        <div>
+                            <button class="todo-app__filters-btn" id="all">All</button>
+                            <button class="todo-app__filters-btn" id="active">Active</button>
+                            <button class="todo-app__filters-btn" id="completed">Completed</button>
+                        </div>
+
+                        <button class="todo-app__filters-btn" id="clearCompleted">Clear Completed</button>
+                    </div>
 
 
-            </div>
-            <input type="text" id="taskInput" placeholder="Create a new todo…">
-            <ul id="taskList"></ul>
-            <div class="filters">
-                <button id="all">All</button>
-                <button id="active">Active</button>
-                <button id="completed">Completed</button>
-                <button id="clearCompleted">Clear Completed</button>
-            </div>
-            <div><span id="remainingCount">0</span> items left</div>
+                </div>
+            </main>
+
         </div>
     </div>
     <script src="main.js"></script>

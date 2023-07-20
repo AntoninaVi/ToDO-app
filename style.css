@@ -7,19 +7,15 @@
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
+}
+
+.wrapper {
+  background-image: url(img/Bitmap.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
+  padding: 20vh;
 }
 
 .container {
@@ -29,18 +25,7 @@ body {
   margin-left: auto;
 }
 
-.todo-app {
-  max-width: 540px;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-ul {
-  list-style: none;
-}
-
-li {
+.header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,16 +35,132 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
-  cursor: -webkit-grab;
-  cursor: grab;
+  max-width: 540px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 2.5em;
 }
-li:active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
+.header__title {
+  color: #fff;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 15px;
+}
+.todo-app {
+  max-width: 540px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.todo-app__task-creation {
+  position: relative;
+}
+.todo-app__task-creation::before {
+  content: url(img/oval-light.svg);
+  position: absolute;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: 1.2em;
+  margin-left: 1.4em;
+}
+.todo-app__task-creation-input {
+  width: 100%;
+  margin-bottom: 1.5em;
+  padding: 1.5em 0 1.5em 4.5em;
+  border-radius: 0.3125rem;
+  background: #fff;
+  -webkit-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+          box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+}
+.todo-app__task-list {
+  border-top-right-radius: 0.3125rem;
+  border-top-left-radius: 0.3125rem;
+  background: #fff;
+  -webkit-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+          box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+}
+.todo-app__filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom-right-radius: 0.3125rem;
+  border-bottom-left-radius: 0.3125rem;
+  background: #fff;
+  padding: 1em 1.5em;
+  -webkit-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+          box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+}
+.todo-app__filters-btn {
+  color: #9495a5;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.194px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 1.1em;
+}
+.todo-app__filters-btn:last-child {
+  margin-right: 0;
+}
+.todo-app__filters-btn:hover {
+  color: #3a7cfd;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.todo-app__filters-btn:active {
+  color: #3a7cfd;
+}
+.todo-app__counting {
+  color: #9495a5;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.194px;
 }
 
-button {
+ul {
+  list-style: none;
+}
+
+li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 85% 10%;
+  grid-template-columns: 5% 85% 10%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+li:hover .delete-btn {
+  display: block;
+}
+
+.delete-btn {
+  display: none;
+  background-image: url(img/cross-light.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  width: 1.1em;
+  height: 1.1em;
   cursor: pointer;
 }
