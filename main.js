@@ -1,29 +1,39 @@
 
-const darkThemeCheckbox = document.getElementById('dark-theme');
+const darkThemeCheckbox = document.getElementById('theme-swicher');
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
 const allFilter = document.getElementById('all');
+
 const activeFilter = document.getElementById('active');
 const completedFilter = document.getElementById('completed');
 const clearCompletedButton = document.getElementById('clearCompleted');
+const remainingCountSpan = document.getElementById('remainingCount');
+
 
 let tasks = [];
 
-function renderTasks() {
+function renderTasks(filteredTasks) {
     taskList.innerHTML = '';
-    tasks.forEach((task, index) => {
+    (filteredTasks || tasks).forEach((task, index) => {
         const li = document.createElement('li');
-        li.draggable = true; //  dragging
-        li.dataset.index = index; 
+        li.draggable = true;
+        li.dataset.index = index;
         li.innerHTML = `
         <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleComplete(${index})">
         <span class="${task.completed ? 'completed' : ''}">${task.name}</span>
-        <button onclick="deleteTask(${index})">Delete</button>
-    `;
+        <button onclick="deleteTask(${index})">Delete</button>`;
         taskList.appendChild(li);
     });
+
+    const remainingCount = tasks.filter((task) => !task.completed).length;
+    remainingCountSpan.textContent = remainingCount;
 }
 
+taskInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+});
 
 function addTask() {
     const taskName = taskInput.value.trim();
@@ -54,12 +64,18 @@ function clearCompleted() {
 }
 
 function filterTasks(filter) {
-    const filteredTasks = filter === 'all'
-        ? tasks
-        : filter === 'active'
-            ? tasks.filter((task) => !task.completed)
-            : tasks.filter((task) => task.completed);
-
+    let filteredTasks;
+    switch (filter) {
+        case 'active':
+            filteredTasks = tasks.filter((task) => !task.completed);
+            break;
+        case 'completed':
+            filteredTasks = tasks.filter((task) => task.completed);
+            break;
+        default:
+            filteredTasks = tasks;
+            break;
+    }
     renderTasks(filteredTasks);
 }
 
@@ -72,24 +88,27 @@ function loadTasks() {
     tasks = savedTasks ? JSON.parse(savedTasks) : [];
     renderTasks();
 }
-
-// Event listeners
-taskInput.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-        addTask();
-    }
-});
+loadTasks();
 
 allFilter.addEventListener('click', () => filterTasks('all'));
 activeFilter.addEventListener('click', () => filterTasks('active'));
 completedFilter.addEventListener('click', () => filterTasks('completed'));
 clearCompletedButton.addEventListener('click', clearCompleted);
 
+function setActiveFilter(activeButton) {
+    [allFilter, activeFilter, completedFilter].forEach(button => button.classList.remove('active'));
+    activeButton.classList.add('active');
+}
+
+//dark theme switcher
 darkThemeCheckbox.addEventListener('change', () => {
-    document.body.classList.toggle('dark-theme', darkThemeCheckbox.checked);
+    const darkThemeEnabled = darkThemeCheckbox.checked;
+    document.body.classList.toggle('dark-theme', darkThemeEnabled);
+
+    const darkThemeLink = document.querySelector('link[href="dark-theme.css"]');
+    darkThemeLink.disabled = !darkThemeEnabled;
 });
 
-loadTasks();
 
 // drag & drop 
 let dragStartIndex;
@@ -120,4 +139,5 @@ taskList.addEventListener('dragstart', dragStart);
 taskList.addEventListener('dragover', dragOver);
 taskList.addEventListener('drop', drop);
 
-loadTasks();
+
+

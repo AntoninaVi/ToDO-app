@@ -8,26 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" id="light-theme">
+    <link rel="stylesheet" href="dark-theme.css" id="dark-theme" disabled>
+
 </head>
 
 <body>
     <div class="container">
         <div class="todo-app">
-        <h1>TODO</h1>
-        <div class="theme-switch">
-            <label for="dark-theme"><img src="img/moon.svg" alt=""></label>
-            <input type="checkbox" id="dark-theme">
+            <h1>TODO</h1>
+            <div class="theme-switch">
+                <label for="theme-swicher"><img src="img/moon.svg" alt=""></label>
+                <input class="theme-swicher" type="checkbox" id="theme-swicher">
+
+
+            </div>
+            <input type="text" id="taskInput" placeholder="Create a new todo…">
+            <ul id="taskList"></ul>
+            <div class="filters">
+                <button id="all">All</button>
+                <button id="active">Active</button>
+                <button id="completed">Completed</button>
+                <button id="clearCompleted">Clear Completed</button>
+            </div>
+            <div><span id="remainingCount">0</span> items left</div>
         </div>
-        <input type="text" id="taskInput" placeholder="Create a new todo…">
-        <ul id="taskList"></ul>
-        <div class="filters">
-            <button id="all">All</button>
-            <button id="active">Active</button>
-            <button id="completed">Completed</button>
-            <button id="clearCompleted">Clear Completed</button>
-        </div>
-    </div>
     </div>
     <script src="main.js"></script>
 </body>
