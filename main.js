@@ -16,12 +16,13 @@ function renderTasks(filteredTasks) {
     taskList.innerHTML = '';
     (filteredTasks || tasks).forEach((task, index) => {
         const li = document.createElement('li');
-        li.classList.add ='todo-app__task-list-item'
+        li.className.add ='todo-app__task-list-item';
         li.draggable = true;
         li.dataset.index = index;
         li.innerHTML = `
+        
         <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleComplete(${index})">
-        <span class="${task.completed ? 'completed' : ''}">${task.name}</span>
+        <p class="${task.completed ? 'completed' : ''}">${task.name}</p>
         <button class="delete-btn" onclick="deleteTask(${index})"></button>
         `;
         taskList.appendChild(li);

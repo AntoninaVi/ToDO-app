@@ -82,6 +82,9 @@ body {
   -webkit-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
           box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
 }
+.todo-app__task-list-item {
+  position: relative;
+}
 .todo-app__filters {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,6 +139,7 @@ ul {
 }
 
 li {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 85% 10%;
@@ -163,4 +167,50 @@ li:hover .delete-btn {
   width: 1.1em;
   height: 1.1em;
   cursor: pointer;
+}
+
+li input[type=checkbox] {
+  margin-right: 8px;
+  /* Hide the default checkbox appearance */
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  /* Create custom checkbox appearance */
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e3e4f1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+li input[type=checkbox]:checked {
+  background: linear-gradient(120deg, rgb(85, 221, 255) 14%, rgb(192, 88, 243) 93%);
+}
+
+li input[type=checkbox]:hover {
+  outline: linear-gradient(120deg, rgb(85, 221, 255) 14%, rgb(192, 88, 243) 93%);
+}
+
+li input[type=checkbox]:checked::before {
+  content: url(img/check.svg);
+  position: relative;
+  display: block;
+  right: -6px;
+  top: 3px;
+  width: 9px;
+  height: 6px;
+}
+
+li p {
+  color: #494c6b;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.25px;
+}
+
+li p.completed {
+  text-decoration: line-through;
+  color: #d1d2da;
 }
