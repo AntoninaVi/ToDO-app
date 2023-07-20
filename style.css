@@ -119,8 +119,8 @@ body {
 }
 .todo-app__filters-btn:hover {
   color: #3a7cfd;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
 }
 .todo-app__filters-btn:active {
   color: #3a7cfd;
@@ -155,6 +155,8 @@ li {
 
 li:hover .delete-btn {
   display: block;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
 .delete-btn {
@@ -185,10 +187,18 @@ li input[type=checkbox] {
 
 li input[type=checkbox]:checked {
   background: linear-gradient(120deg, rgb(85, 221, 255) 14%, rgb(192, 88, 243) 93%);
+  border: none;
 }
 
 li input[type=checkbox]:hover {
-  outline: linear-gradient(120deg, rgb(85, 221, 255) 14%, rgb(192, 88, 243) 93%);
+  border-radius: 50px;
+  border: 2px solid transparent;
+  background: linear-gradient(120deg, rgb(85, 221, 255) 14%, rgb(192, 88, 243) 93%) border-box;
+  /*3*/
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff)) padding-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
 li input[type=checkbox]:checked::before {
@@ -196,7 +206,7 @@ li input[type=checkbox]:checked::before {
   position: relative;
   display: block;
   right: -6px;
-  top: 3px;
+  top: 5px;
   width: 9px;
   height: 6px;
 }

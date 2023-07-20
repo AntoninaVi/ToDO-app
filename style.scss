@@ -107,7 +107,7 @@ body {
         }
         &:hover {
             color: #3a7cfd;
-            transition: 0.3s;
+            transition: ease-in-out 0.3s;
         }
         &:active {
             color: #3a7cfd;
@@ -145,6 +145,7 @@ li {
 
 li:hover .delete-btn {
     display: block;
+    transition: ease-in-out 0.3s;
 }
 
 .delete-btn {
@@ -174,17 +175,23 @@ li input[type="checkbox"] {
 
 li input[type="checkbox"]:checked {
     background: linear-gradient(120deg, rgba(85, 221, 255, 1) 14%, rgba(192, 88, 243, 1) 93%);
+    border: none;
+}
+li input[type="checkbox"]:hover {
+    border-radius: 50px;
+    border: 2px solid transparent;
+    background: linear-gradient(120deg, rgba(85, 221, 255, 1) 14%, rgba(192, 88, 243, 1) 93%) border-box; /*3*/
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
 }
 
-li input[type="checkbox"]:hover {
-    outline: linear-gradient(120deg, rgba(85, 221, 255, 1) 14%, rgba(192, 88, 243, 1) 93%);
-}
 li input[type="checkbox"]:checked::before {
     content: url(img/check.svg);
     position: relative;
     display: block;
     right: -6px;
-    top: 3px;
+    top: 5px;
     width: 9px;
     height: 6px;
 }
