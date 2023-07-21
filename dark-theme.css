@@ -24,26 +24,9 @@ body {
 }
 
 .main__subscription {
-  text-align: center;
   color: #9495a5;
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: -0.194px;
 }
 
-.todo-app {
-  max-width: 540px;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 3em;
-}
-.todo-app__task-creation {
-  position: relative;
-}
 .todo-app__task-creation::before {
   content: url(img/oval-dark.svg);
   border: 1px solid #979797;
