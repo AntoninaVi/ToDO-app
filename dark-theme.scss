@@ -17,9 +17,7 @@ body {
 .theme-swicher-img {
     background-image: url(img/sun.svg);
 }
-.main__subscription {
-    color: #9495a5;
-}
+
 .todo-app {
     &__task-creation {
         &::before {
@@ -29,22 +27,26 @@ body {
         }
     }
     &__task-creation-input {
-        background: #393a4b;
+        background: #25273d;
         color: #c8cbe7;
         box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+        border: none;
     }
 
     &__task-list {
-        background: #393a4b;
+        background: #25273d;
         box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
     }
     &__filters {
-        background: #393a4b;
+        background: #25273d;
         box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
     }
 
     &__filters-btn {
         color: #5b5e7e;
+        &:hover {
+            color: #e3e4f1;
+        }
     }
 
     &__counting {
@@ -52,8 +54,15 @@ body {
     }
 }
 
+@media screen and(max-width:912px) {
+    .todo-app__filters-buttons {
+        background: #25273d;
+        box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+    }
+}
+
 li {
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid #393a4b;
 }
 
 .delete-btn {
@@ -70,4 +79,7 @@ li p {
 
 li p.completed {
     color: #4d5067;
+}
+.todo-app__filters-btn.active {
+    color: #3a7cfd;
 }

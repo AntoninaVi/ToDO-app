@@ -20,7 +20,6 @@ function renderTasks(filteredTasks) {
         li.draggable = true;
         li.dataset.index = index;
         li.innerHTML = `
-        
         <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleComplete(${index})">
         <p class="${task.completed ? 'completed' : ''}">${task.name}</p>
         <button class="delete-btn" onclick="deleteTask(${index})"></button>
@@ -65,7 +64,18 @@ function clearCompleted() {
     saveTasks();
     renderTasks();
 }
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
+function loadTasks() {
+    const savedTasks = localStorage.getItem('tasks');
+    tasks = savedTasks ? JSON.parse(savedTasks) : [];
+    renderTasks();
+}
+loadTasks();
+
+//filters
 function filterTasks(filter) {
     let filteredTasks;
     switch (filter) {
@@ -82,19 +92,6 @@ function filterTasks(filter) {
     renderTasks(filteredTasks);
 }
 
-function saveTasks() {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-function loadTasks() {
-    const savedTasks = localStorage.getItem('tasks');
-    tasks = savedTasks ? JSON.parse(savedTasks) : [];
-    renderTasks();
-}
-loadTasks();
-
-
-//filters
 allFilter.addEventListener('click', () => filterTasks('all'));
 activeFilter.addEventListener('click', () => filterTasks('active'));
 completedFilter.addEventListener('click', () => filterTasks('completed'));
