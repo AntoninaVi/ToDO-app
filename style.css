@@ -15,7 +15,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top center;
-  padding: 20vh 0;
+  padding: 12vh 0;
 }
 @media screen and (max-width: 1250px) {
   .wrapper {
