@@ -48,11 +48,37 @@ body {
   line-height: normal;
   letter-spacing: 15px;
 }
+.header__theme-switch {
+  cursor: pointer;
+}
+
+.theme-swicher {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.theme-swicher-img {
+  cursor: pointer;
+}
+
+.main__subscription {
+  text-align: center;
+  color: #9495a5;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.194px;
+}
+
 .todo-app {
   max-width: 540px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 3em;
 }
 .todo-app__task-creation {
   position: relative;
@@ -173,11 +199,9 @@ li:hover .delete-btn {
 
 li input[type=checkbox] {
   margin-right: 8px;
-  /* Hide the default checkbox appearance */
   -moz-appearance: none;
        appearance: none;
   -webkit-appearance: none;
-  /* Create custom checkbox appearance */
   width: 24px;
   height: 24px;
   border: 2px solid #e3e4f1;
