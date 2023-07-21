@@ -66,6 +66,11 @@ body {
   line-height: normal;
   letter-spacing: 15px;
 }
+@media screen and (max-width: 860px) {
+  .header__title {
+    font-size: 20px;
+  }
+}
 .header__theme-switch {
   cursor: pointer;
 }
@@ -224,8 +229,9 @@ li {
   position: relative;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 5% 85% 10%;
-  grid-template-columns: 5% 85% 10%;
+  -ms-grid-columns: 8% 1.5em 74% 1.5em 10%;
+  grid-template-columns: 8% 74% 10%;
+  gap: 1.5em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -233,6 +239,11 @@ li {
   padding: 20px;
   border-bottom: 1px solid #e3e4f1;
   cursor: pointer;
+}
+@media screen and (max-width: 525px) {
+  li {
+    gap: 0.7em;
+  }
 }
 
 li:hover .delete-btn {
@@ -303,6 +314,14 @@ li p {
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+@media screen and (max-width: 860px) {
+  li p {
+    font-size: 12px;
+  }
 }
 
 li p.completed {

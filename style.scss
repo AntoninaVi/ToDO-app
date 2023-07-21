@@ -50,6 +50,9 @@ body {
         font-weight: 700;
         line-height: normal;
         letter-spacing: 15px;
+        @media screen and (max-width:860px){
+            font-size: 20px;
+        }
     }
 
     &__theme-switch {
@@ -191,7 +194,8 @@ ul {
 li {
     position: relative;
     display: grid;
-    grid-template-columns: 5% 85% 10%;
+    grid-template-columns: 8% 74% 10%;
+    gap: 1.5em;
     align-items: center;
     justify-items: center;
     padding: 20px;
@@ -201,6 +205,9 @@ li {
     //     cursor: grabbing;
     // }
     cursor: pointer;
+    @media screen and (max-width: 525px){
+        gap: 0.7em;
+    }
 }
 
 li:hover .delete-btn {
@@ -266,6 +273,13 @@ li p {
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    @media screen and (max-width:860px){
+        font-size: 12px;
+        
+    }
 }
 
 li p.completed {
