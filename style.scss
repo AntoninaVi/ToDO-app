@@ -74,8 +74,10 @@ body {
             display: block;
             width: 1.5em;
             height: 1.5em;
+            border: 1px solid #e3e4f1;
+            border-radius: 50%;
             margin-top: 1.2em;
-            margin-left: 1.4em;
+            margin-left: 1.2em;
         }
     }
     &__task-creation-input {
@@ -125,9 +127,6 @@ body {
             color: #3a7cfd;
             transition: ease-in-out 0.3s;
         }
-        &:active {
-            color: #3a7cfd;
-        }
     }
 
     &__counting {
@@ -138,6 +137,12 @@ body {
         line-height: normal;
         letter-spacing: -0.194px;
     }
+}
+.clear {
+    font-weight: 400;
+}
+.todo-app__filters-btn.active {
+    color: #3a7cfd;
 }
 
 ul {

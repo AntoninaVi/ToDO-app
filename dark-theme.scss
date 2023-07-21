@@ -69,81 +69,39 @@ body {
     &__task-creation {
         position: relative;
         &::before {
-            content: url(img/oval-light.svg);
-            position: absolute;
-            display: block;
-            width: 1.5em;
-            height: 1.5em;
-            margin-top: 1.2em;
-            margin-left: 1.4em;
+            content: url(img/oval-dark.svg);
+            border: 1px solid #979797;
+            border-radius: 50%;
         }
     }
     &__task-creation-input {
         background: #393a4b;
+        color: #c8cbe7;
+        box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
     }
 
     &__task-list {
         background: #393a4b;
-    }
-    &__task-list-item {
-        position: relative;
+        box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
+
     }
     &__filters {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom-right-radius: 0.3125rem;
-        border-bottom-left-radius: 0.3125rem;
-        background: #fff;
-        padding: 1em 1.5em;
-        box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+        background: #393a4b;
+        box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
+
     }
 
     &__filters-btn {
-        color: #9495a5;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        letter-spacing: -0.194px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        margin-right: 1.1em;
-        &:last-child {
-            margin-right: 0;
-        }
-        &:hover {
-            color: #3a7cfd;
-            transition: ease-in-out 0.3s;
-        }
-        &:active {
-            color: #3a7cfd;
-        }
+        color: #5b5e7e;
     }
 
     &__counting {
-        color: #9495a5;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: -0.194px;
+        color: #5B5E7E;
     }
 }
 
-ul {
-    list-style: none;
-}
-
 li {
-    position: relative;
-    display: grid;
-    grid-template-columns: 5% 85% 10%;
-    align-items: center;
-    justify-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #979797;
     // cursor: grab;
     // &:active{
     //     cursor: grabbing;
@@ -151,67 +109,19 @@ li {
     cursor: pointer;
 }
 
-li:hover .delete-btn {
-    display: block;
-    transition: ease-in-out 0.3s;
-}
 
 .delete-btn {
-    display: none;
-    background-image: url(img/cross-light.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    width: 1.1em;
-    height: 1.1em;
-    cursor: pointer;
+    background-image: url(img/cross-dark.svg);
 }
 
 li input[type="checkbox"] {
-    margin-right: 8px;
-    appearance: none;
-    -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #e3e4f1;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-li input[type="checkbox"]:checked {
-    background: linear-gradient(120deg, rgba(85, 221, 255, 1) 14%, rgba(192, 88, 243, 1) 93%);
-    border: none;
-}
-li input[type="checkbox"]:hover {
-    border-radius: 50px;
-    border: 2px solid transparent;
-    background: linear-gradient(120deg, rgba(85, 221, 255, 1) 14%, rgba(192, 88, 243, 1) 93%) border-box; /*3*/
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-}
-
-li input[type="checkbox"]:checked::before {
-    content: url(img/check.svg);
-    position: relative;
-    display: block;
-    right: -6px;
-    top: 5px;
-    width: 9px;
-    height: 6px;
+    border: 2px solid #979797;
 }
 
 li p {
-    color: #494c6b;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.25px;
+    color: #c8cbe7;
 }
 
 li p.completed {
-    text-decoration: line-through;
-    color: #d1d2da;
+    color: #4d5067;
 }

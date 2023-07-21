@@ -16,7 +16,7 @@ function renderTasks(filteredTasks) {
     taskList.innerHTML = '';
     (filteredTasks || tasks).forEach((task, index) => {
         const li = document.createElement('li');
-        li.className.add ='todo-app__task-list-item';
+        li.className.add = 'todo-app__task-list-item';
         li.draggable = true;
         li.dataset.index = index;
         li.innerHTML = `
@@ -93,6 +93,8 @@ function loadTasks() {
 }
 loadTasks();
 
+
+//filters
 allFilter.addEventListener('click', () => filterTasks('all'));
 activeFilter.addEventListener('click', () => filterTasks('active'));
 completedFilter.addEventListener('click', () => filterTasks('completed'));
@@ -102,6 +104,21 @@ function setActiveFilter(activeButton) {
     [allFilter, activeFilter, completedFilter].forEach(button => button.classList.remove('active'));
     activeButton.classList.add('active');
 }
+allFilter.addEventListener('click', () => {
+    filterTasks('all');
+    setActiveFilter(allFilter);
+});
+
+activeFilter.addEventListener('click', () => {
+    filterTasks('active');
+    setActiveFilter(activeFilter);
+});
+
+completedFilter.addEventListener('click', () => {
+    filterTasks('completed');
+    setActiveFilter(completedFilter);
+});
+
 
 //dark theme switcher
 darkThemeCheckbox.addEventListener('change', () => {
