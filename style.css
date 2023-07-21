@@ -59,6 +59,12 @@ body {
 }
 
 .theme-swicher-img {
+  background-image: url(img/moon.svg);
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   cursor: pointer;
 }
 
@@ -91,7 +97,7 @@ body {
   height: 1.5em;
   border: 1px solid #e3e4f1;
   border-radius: 50%;
-  margin-top: 1.2em;
+  margin-top: 1em;
   margin-left: 1.2em;
 }
 .todo-app__task-creation-input {
