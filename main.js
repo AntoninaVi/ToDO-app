@@ -28,9 +28,9 @@ function renderTasks(filteredTasks) {
             li.draggable = true;
             li.dataset.index = index;
             li.innerHTML = `
-          <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleComplete(${index})">
-          <p class="${task.completed ? 'completed' : ''}">${task.name}</p>
-          <button class="delete-btn" onclick="deleteTask(${index})"></button>
+            <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleComplete(${index})">
+            <p class="${task.completed ? 'completed' : ''}">${task.name}</p>
+            <button class="delete-btn" onclick="deleteTask(${index})"></button>
         `;
             taskList.appendChild(li);
         });
@@ -175,5 +175,4 @@ function swapTasks(fromIndex, toIndex) {
 taskList.addEventListener('dragstart', dragStart);
 taskList.addEventListener('dragover', dragOver);
 taskList.addEventListener('drop', drop);
-
 
