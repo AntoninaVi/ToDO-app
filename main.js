@@ -68,6 +68,7 @@ function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+
 function loadTasks() {
     const savedTasks = localStorage.getItem('tasks');
     tasks = savedTasks ? JSON.parse(savedTasks) : [];
@@ -118,13 +119,19 @@ completedFilter.addEventListener('click', () => {
 
 
 //dark theme switcher
-darkThemeCheckbox.addEventListener('change', () => {
-    const darkThemeEnabled = darkThemeCheckbox.checked;
-    document.body.classList.toggle('dark-theme', darkThemeEnabled);
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    darkThemeCheckbox.checked = document.body.classList.toggle('dark-theme', savedTheme === 'dark');
+    document.querySelector('link[href="dark-theme.css"]').disabled = !darkThemeCheckbox.checked;
+}
 
-    const darkThemeLink = document.querySelector('link[href="dark-theme.css"]');
-    darkThemeLink.disabled = !darkThemeEnabled;
+darkThemeCheckbox.addEventListener('change', () => {
+    document.body.classList.toggle('dark-theme', darkThemeCheckbox.checked);
+    document.querySelector('link[href="dark-theme.css"]').disabled = !darkThemeCheckbox.checked;
+    localStorage.setItem('theme', darkThemeCheckbox.checked ? 'dark' : 'light');
 });
+
+loadTheme();
 
 
 // drag & drop 
