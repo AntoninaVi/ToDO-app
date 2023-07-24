@@ -14,6 +14,7 @@ let tasks = [];
 
 function renderTasks(filteredTasks) {
     taskList.innerHTML = '';
+
     (filteredTasks || tasks).forEach((task, index) => {
         const li = document.createElement('li');
         li.className.add = 'todo-app__task-list-item';
@@ -63,11 +64,12 @@ function clearCompleted() {
     tasks = tasks.filter((task) => !task.completed);
     saveTasks();
     renderTasks();
+
 }
+
 function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-
 
 function loadTasks() {
     const savedTasks = localStorage.getItem('tasks');
@@ -96,7 +98,10 @@ function filterTasks(filter) {
 allFilter.addEventListener('click', () => filterTasks('all'));
 activeFilter.addEventListener('click', () => filterTasks('active'));
 completedFilter.addEventListener('click', () => filterTasks('completed'));
-clearCompletedButton.addEventListener('click', clearCompleted);
+clearCompletedButton.addEventListener('click', () => {
+    clearCompleted();
+    setActiveFilter(allFilter);
+});
 
 function setActiveFilter(activeButton) {
     [allFilter, activeFilter, completedFilter].forEach(button => button.classList.remove('active'));
@@ -116,7 +121,7 @@ completedFilter.addEventListener('click', () => {
     filterTasks('completed');
     setActiveFilter(completedFilter);
 });
-
+setActiveFilter(allFilter);
 
 //dark theme switcher
 function loadTheme() {
