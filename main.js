@@ -19,7 +19,7 @@ function renderTasks(filteredTasks) {
     if (tasksToRender.length === 0) {
         const li = document.createElement('li');
         li.textContent = 'No tasks';
-        li.classList.add('todo-app__filters-message');
+        li.classList.add('todo-app__filters-message'); //"No Tasks"
         taskList.appendChild(li);
     } else {
         tasksToRender.forEach((task, index) => {
@@ -131,7 +131,7 @@ completedFilter.addEventListener('click', () => {
 });
 setActiveFilter(allFilter);
 
-//dark theme switcher
+//dark theme switcher/ save and load theme
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme');
     darkThemeCheckbox.checked = document.body.classList.toggle('dark-theme', savedTheme === 'dark');
@@ -143,7 +143,6 @@ darkThemeCheckbox.addEventListener('change', () => {
     document.querySelector('link[href="dark-theme.css"]').disabled = !darkThemeCheckbox.checked;
     localStorage.setItem('theme', darkThemeCheckbox.checked ? 'dark' : 'light');
 });
-
 loadTheme();
 
 
