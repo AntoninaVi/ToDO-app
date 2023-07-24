@@ -50,7 +50,7 @@ body {
         font-weight: 700;
         line-height: normal;
         letter-spacing: 15px;
-        @media screen and (max-width:860px){
+        @media screen and (max-width: 860px) {
             font-size: 20px;
         }
     }
@@ -136,6 +136,16 @@ body {
             position: relative;
         }
     }
+    &__filters-message {
+        display: flex;
+        justify-content: center;
+        padding: 1.5em;
+        color: #7e82ae;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.25px;
+    }
 
     &__filters-btn {
         color: #9495a5;
@@ -201,7 +211,7 @@ li {
     //     cursor: grabbing;
     // }
     cursor: pointer;
-    @media screen and (max-width: 525px){
+    @media screen and (max-width: 525px) {
         gap: 0.7em;
     }
 }
@@ -272,9 +282,8 @@ li p {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    @media screen and (max-width:860px){
+    @media screen and (max-width: 860px) {
         font-size: 12px;
-        
     }
 }
 

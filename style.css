@@ -170,6 +170,20 @@ body {
     position: relative;
   }
 }
+.todo-app__filters-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.5em;
+  color: #7e82ae;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.25px;
+}
 .todo-app__filters-btn {
   color: #9495a5;
   font-size: 14px;

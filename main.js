@@ -11,22 +11,30 @@ const remainingCountSpan = document.getElementById('remainingCount');
 
 
 let tasks = [];
-
 function renderTasks(filteredTasks) {
     taskList.innerHTML = '';
 
-    (filteredTasks || tasks).forEach((task, index) => {
+    const tasksToRender = filteredTasks || tasks;
+
+    if (tasksToRender.length === 0) {
         const li = document.createElement('li');
-        li.className.add = 'todo-app__task-list-item';
-        li.draggable = true;
-        li.dataset.index = index;
-        li.innerHTML = `
-        <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleComplete(${index})">
-        <p class="${task.completed ? 'completed' : ''}">${task.name}</p>
-        <button class="delete-btn" onclick="deleteTask(${index})"></button>
-        `;
+        li.textContent = 'No tasks';
+        li.classList.add('todo-app__filters-message');
         taskList.appendChild(li);
-    });
+    } else {
+        tasksToRender.forEach((task, index) => {
+            const li = document.createElement('li');
+            li.classList.add('todo-app__task-list-item');
+            li.draggable = true;
+            li.dataset.index = index;
+            li.innerHTML = `
+          <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleComplete(${index})">
+          <p class="${task.completed ? 'completed' : ''}">${task.name}</p>
+          <button class="delete-btn" onclick="deleteTask(${index})"></button>
+        `;
+            taskList.appendChild(li);
+        });
+    }
 
     const remainingCount = tasks.filter((task) => !task.completed).length;
     remainingCountSpan.textContent = remainingCount;
@@ -167,6 +175,5 @@ function swapTasks(fromIndex, toIndex) {
 taskList.addEventListener('dragstart', dragStart);
 taskList.addEventListener('dragover', dragOver);
 taskList.addEventListener('drop', drop);
-
 
 
