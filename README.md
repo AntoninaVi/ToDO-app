@@ -14,4 +14,5 @@ Technologies used in the project:
 
 *   JavaScript
 *   SCSS
-<img width="695" alt="Screenshot8" src="https://github.com/AntoninaVi/ToDO-app/assets/68278960/7f89e6d3-234c-4e44-b152-1bc833826cd7">
+
+<img width="695" alt="Screenshot" src="https://github.com/AntoninaVi/ToDO-app/assets/68278960/76cf6ad3-0c1e-4a76-a63c-5f1bf1aec148">
